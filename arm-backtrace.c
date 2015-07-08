@@ -60,7 +60,6 @@ int backtrace_arm(void **array, int size)
 	while((cnt <= size) && (nfp > 0))
 	{
 		array[cnt++] = (void *)*(nfp - 1);
-		//char** strings = backtrace_symbols_ce123(array, cnt);
 		//printf("%d: %s\n", cnt-1, strings[cnt-1]);
 		//free(strings);
 		if ((nfp-3) > 0 && *(nfp-3) > 0)
@@ -93,7 +92,6 @@ char ** backtrace_symbols_arm(void *const *array, int size)
 	// 从函数返回地址获得函数名
 	for (cnt = 0; cnt < size; ++cnt)
 	{
-		//dlinfop[cnt] = _dl_addr (array[cnt], &dlinfo[cnt]);
 		dlinfop[cnt] = dladdr (array[cnt], &dlinfo[cnt]);
 		if (dlinfop[cnt] && dlinfo[cnt].dli_fname && dlinfo[cnt].dli_fname[0] != '\0')
 		// 文件名(入口)+偏移
