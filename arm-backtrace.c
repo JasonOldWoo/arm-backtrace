@@ -62,7 +62,7 @@ int backtrace_arm(void **array, int size)
 		array[cnt++] = (void *)*(nfp - 1);
 		//printf("%d: %s\n", cnt-1, strings[cnt-1]);
 		//free(strings);
-		if ((nfp-3) > 0 && *(nfp-3) > 0)
+		if ((nfp-3) != 0 && *(nfp-3) != 0)
 		{
 			//printf("nfp - 3: %d\n", (int)(nfp - 3));
 			//printf("*(nfp-3): %d\n", *(nfp-3));
